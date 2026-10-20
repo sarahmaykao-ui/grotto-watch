@@ -82,6 +82,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:500}
 .tip{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:.93rem}
 .tip b{font-family:var(--display);font-size:1.05rem}
 .coffee{background:var(--berry);color:#fff5f3}
+.fbbtn{background:var(--surface2);color:var(--ink);border:1px solid var(--line)}
 .smallprint{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:grid;gap:8px}
 .smallprint h2{font-family:var(--display);font-size:1.1rem;margin:0;color:var(--ink)}
 .smallprint ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
@@ -113,7 +114,12 @@ h1 em{font-style:italic;color:var(--gold);font-weight:500}
 
   <aside class="tip" id="tip" hidden>
     <div><b>Did this help you bag a grotto?</b> Keeping this page checked twice a day takes time and a few quid in running costs. If it saved you a scramble, a coffee goes a long way.</div>
-    <a class="book coffee" id="tip-link" href="#" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+    <a class="book coffee" id="tip-link" href="#" target="_blank" rel="noopener">☕ Buy me a coffee on Ko-fi</a>
+  </aside>
+
+  <aside class="tip fb" id="fb" hidden>
+    <div><b>Spotted a mistake or a missing grotto?</b> Wrong price, a sold-out slot, a grotto we've not listed: tell me and I'll fix it.</div>
+    <a class="book fbbtn" id="fb-link" href="#" target="_blank" rel="noopener">✉️ Send feedback</a>
   </aside>
 
   <div class="counts" id="counts"></div>
@@ -136,14 +142,16 @@ h1 em{font-style:italic;color:var(--gold);font-weight:500}
       <li>Toddler notes come from what the venue says (age limits, session lengths, whether babies need tickets). They're not a safety or suitability check. Use your own judgement about crowds, noise, dark trails and late starts.</li>
       <li>Free events can be ticketed or first come, first served. Check the card and the venue page.</li>
       <li>Nothing here is a recommendation or an endorsement, and we're not responsible for a venue's event, its prices, its cancellations or your booking.</li>
-      <li>Spotted a mistake or a missing grotto? Tell whoever shared this page with you.</li>
+      <li>Spotted a mistake or a missing grotto? Use the feedback button above.</li>
     </ul>
   </section>
 </div>
 
 <script>
-const DONATE_URL="";  // e.g. https://buymeacoffee.com/yourname — leave empty to hide the button
+const DONATE_URL="https://ko-fi.com/sarahkao";
+const FEEDBACK_URL="mailto:sarahmaywellock@gmail.com?subject=Grotto%20Watch%20feedback";
 if(DONATE_URL){const t=document.getElementById("tip");document.getElementById("tip-link").href=DONATE_URL;t.hidden=false}
+if(FEEDBACK_URL){const f=document.getElementById("fb");document.getElementById("fb-link").href=FEEDBACK_URL;f.hidden=false}
 const ORDER={low:0,on_sale:0.5,announced:1,not_yet:2,sold_out:3};
 const META={low:["soon","Going fast"],on_sale:["go","Book now"],announced:["soon","Sale date set"],not_yet:["wait","Watching"],sold_out:["gone","Sold out"]};
 const SEC={free:["Free","no ticket cost"],on_sale:["Paid · open now","book before they go"],announced:["Paid · sale date set","put it in the diary"],not_yet:["Paid · no date yet","we're watching"],sold_out:["Sold out","check for returns"]};
