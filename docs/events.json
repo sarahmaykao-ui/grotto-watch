@@ -670,6 +670,21 @@
    "venue": "Regent's Park",
    "what": "A festive grotto inside the zoo, combined with a zoo day out.",
    "id": "zoo"
+  },
+  {
+   "id": "john-lewis-tea-party",
+   "name": "Santa's Tea Party at John Lewis",
+   "venue": "John Lewis: White City, Brent Cross, Kingston, Stratford (+ Bluewater, Welwyn)",
+   "kind": "grotto",
+   "status": "low",
+   "saleNote": "General sale opened 28 Sept; 65% had gone to members before that. Check each store on the booking page",
+   "runs": "4 – 24 Dec 2026, dates vary by store",
+   "price": "Child £25 + £2.50 fee (incl. snack, drink and gift), adult £8 + 80p (tea and cake)",
+   "what": "Story time with Santa over cocoa and a snack, with a Plus-Plus gift for each child. Max two adults per child. The Oxford Street grotto, Peter Jones and Canary Wharf aren't on this year's list yet.",
+   "toddler": "John Lewis says it's suitable from 18 months, and all ages are welcome. A baby with a paying sibling goes free without a gift.",
+   "toddlerOk": true,
+   "link": "https://tickets.eskimojoevents.co.uk/landing/JLP26",
+   "checked": "2026-10-20"
   }
  ]
 }
