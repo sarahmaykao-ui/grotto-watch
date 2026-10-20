@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grotto Watch London</title>
+<meta name="description" content="Santa's grottos, Christmas light trails and free festive events around London for 2026, with ticket status checked twice a day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..800,50;1,9..144,400..800,50&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: a winter-night single column. Hero with sleeps-till-Christmas, a berry-bordered caveat box, then event "gift tags" grouped by what you can do about them right now. */
+:root{
+  --bg:#0a1b26; --bg2:#0f2633; --surface:#132e3c; --surface2:#183a4a; --ink:#fbf4e3; --muted:#a7bcc6; --line:#24495b;
+  --gold:#f3c64f; --gold-soft:#3b3014; --berry:#ef6a62; --berry-soft:#43211f; --pine:#5fcf92; --pine-soft:#173d2d;
+  --snow:#ffffff;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eaf2f6; --bg2:#dfeaf0; --surface:#ffffff; --surface2:#f3f8fa; --ink:#10303c; --muted:#5a7380; --line:#cfdde5;
+  --gold:#a87b14; --gold-soft:#fbefc9; --berry:#c43c3a; --berry-soft:#fbe1df; --pine:#1f7f4e; --pine-soft:#d9f2e4;
+  --snow:#10303c; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eaf2f6; --bg2:#dfeaf0; --surface:#ffffff; --surface2:#f3f8fa; --ink:#10303c; --muted:#5a7380; --line:#cfdde5;
+  --gold:#a87b14; --gold-soft:#fbefc9; --berry:#c43c3a; --berry-soft:#fbe1df; --pine:#1f7f4e; --pine-soft:#d9f2e4;
+  --snow:#10303c; color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);background-image:radial-gradient(ellipse at 50% -10%,var(--bg2),var(--bg) 60%);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;min-height:100vh;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;position:relative}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.7}
+.wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header{display:flex;flex-direction:column;gap:10px;text-align:center;align-items:center}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,9vw,4.2rem);line-height:.98;margin:0;text-wrap:balance;font-variation-settings:"opsz" 144,"SOFT" 50}
+h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.sleeps{font-family:var(--display);font-size:1.25rem;font-style:italic;color:var(--muted);margin:0}
+.sleeps b{color:var(--berry);font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+.sub{color:var(--muted);margin:0;max-width:56ch}
+.run{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;background:var(--surface);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.run b{color:var(--ink);font-weight:700}
+.caveat{background:var(--surface);border:2px solid var(--berry);border-radius:14px;padding:14px 16px;display:grid;gap:6px}
+.caveat h2{margin:0;font-family:var(--display);font-size:1.15rem;color:var(--berry);font-weight:700}
+.caveat ul{margin:0;padding-left:1.1em;display:grid;gap:3px;font-size:.93rem}
+.caveat a{color:var(--ink)}
+.counts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tabs button{font:inherit;font-size:.88rem;font-weight:700;padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--gold);color:#1b1607;border-color:var(--gold)}
+.tabs button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.section-h{display:flex;align-items:center;gap:12px;margin:10px 0 -8px;font-family:var(--display);font-size:1.35rem;font-weight:600;font-style:italic}
+.section-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.section-h small{font-family:var(--body);font-style:normal;font-size:.78rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.list{display:flex;flex-direction:column;gap:12px}
+.slip{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 22px;display:grid;gap:9px;min-width:0;overflow:hidden}
+.slip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--muted)}
+.slip.go::before{background:var(--pine)} .slip.soon::before{background:repeating-linear-gradient(135deg,var(--gold) 0 8px,var(--berry) 8px 16px)}
+.slip.free::before{background:var(--berry)} .slip.gone{opacity:.65} .slip.gone::before{background:var(--line)}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.name{font-family:var(--display);font-size:1.3rem;line-height:1.2;margin:0;font-weight:600}
+.venue{color:var(--muted);font-size:.88rem;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip.go{background:var(--pine-soft);color:var(--pine)} .chip.soon{background:var(--gold-soft);color:var(--gold)}
+.chip.wait{background:var(--surface2);color:var(--muted)} .chip.gone{background:var(--berry-soft);color:var(--berry)}
+.chip.free{background:var(--berry-soft);color:var(--berry)}
+.what{margin:0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;font-size:.9rem;margin:0}
+.facts dt{color:var(--muted);font-weight:700} .facts dd{margin:0;font-variant-numeric:tabular-nums;min-width:0}
+.tod{font-size:.88rem;background:var(--gold-soft);border-radius:8px;padding:7px 11px}
+.tod b{color:var(--gold)}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.book{display:inline-block;font-weight:800;text-decoration:none;color:#1b1607;background:var(--gold);padding:8px 16px;border-radius:999px;font-size:.92rem}
+.slip.go .book{background:var(--pine);color:#06241a}
+.slip.wait .book,.slip.gone .book{background:var(--surface2);color:var(--ink);border:1px solid var(--line)}
+.checked{font-size:.76rem;color:var(--muted)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:26px;color:var(--muted);text-align:center}
+.tip{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:.93rem}
+.tip b{font-family:var(--display);font-size:1.05rem}
+.coffee{background:var(--berry);color:#fff5f3}
+.smallprint{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:grid;gap:8px}
+.smallprint h2{font-family:var(--display);font-size:1.1rem;margin:0;color:var(--ink)}
+.smallprint ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.smallprint a{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.slip{transition:transform .15s}.slip:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">London · Christmas 2026</div>
+    <h1>Grotto <em>Watch</em></h1>
+    <p class="sleeps" id="sleeps"></p>
+    <p class="sub">Santa's grottos, light trails and free festive days out, big and small, with ticket status checked every morning and evening.</p>
+    <div class="run" id="run">Loading the latest check…</div>
+  </header>
+
+  <section class="caveat" aria-labelledby="cav-h">
+    <h2 id="cav-h">Read this before you book</h2>
+    <ul>
+      <li><b>Things sell out fast.</b> Popular grottos go within hours of release. "Open now" means tickets were available at the last check, not that they still are.</li>
+      <li><b>Always check the official page.</b> Dates, prices and age rules change. The booking link on each card is the place to trust, not this page.</li>
+      <li><b>Gathered automatically.</b> This list is pulled together from venue sites, ticket sellers and listings. It can be wrong, late or incomplete. Nothing here is a booking.</li>
+      <li><b>Prices</b> usually exclude booking fees unless the card says otherwise.</li>
+      <li>We're not connected to any venue and the booking links aren't affiliate links.</li>
+    </ul>
+  </section>
+
+  <aside class="tip" id="tip" hidden>
+    <div><b>Did this help you bag a grotto?</b> Keeping this page checked twice a day takes time and a few quid in running costs. If it saved you a scramble, a coffee goes a long way.</div>
+    <a class="book coffee" id="tip-link" href="#" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+  </aside>
+
+  <div class="counts" id="counts"></div>
+  <div class="tabs" role="group" aria-label="Filter">
+    <button id="f-all" data-f="all" aria-pressed="true">Everything</button>
+    <button id="f-free" data-f="free" aria-pressed="false">Free</button>
+    <button id="f-paid" data-f="paid" aria-pressed="false">Paid, open now</button>
+    <button id="f-grotto" data-f="grotto" aria-pressed="false">Grottos</button>
+    <button id="f-lights" data-f="lights" aria-pressed="false">Lights</button>
+    <button id="f-tod" data-f="tod" aria-pressed="false">Under-2 friendly</button>
+  </div>
+  <main id="main"><div class="empty">Loading events…</div></main>
+
+  <section class="smallprint" aria-labelledby="sp-h">
+    <h2 id="sp-h">How this works and what it can't promise</h2>
+    <ul>
+      <li>Twice a day an automated check searches venue websites, ticket sellers (Fever, Eventbrite and similar) and London listings sites, then updates this page.</li>
+      <li>"Going fast" means the venue or ticket seller said so, or some dates or ticket types showed as sold out. "Sold out" means every date looked gone at the last check. Returns and extra dates do get released, so it's worth re-checking the official page.</li>
+      <li>Many booking sites only show which slots are full once you click into their calendar. This page can't see those, so a slot you want may already be gone.</li>
+      <li>Toddler notes come from what the venue says (age limits, session lengths, whether babies need tickets). They're not a safety or suitability check. Use your own judgement about crowds, noise, dark trails and late starts.</li>
+      <li>Free events can be ticketed or first come, first served. Check the card and the venue page.</li>
+      <li>Nothing here is a recommendation or an endorsement, and we're not responsible for a venue's event, its prices, its cancellations or your booking.</li>
+      <li>Spotted a mistake or a missing grotto? Tell whoever shared this page with you.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const DONATE_URL="";  // e.g. https://buymeacoffee.com/yourname — leave empty to hide the button
+if(DONATE_URL){const t=document.getElementById("tip");document.getElementById("tip-link").href=DONATE_URL;t.hidden=false}
+const ORDER={low:0,on_sale:0.5,announced:1,not_yet:2,sold_out:3};
+const META={low:["soon","Going fast"],on_sale:["go","Book now"],announced:["soon","Sale date set"],not_yet:["wait","Watching"],sold_out:["gone","Sold out"]};
+const SEC={free:["Free","no ticket cost"],on_sale:["Paid · open now","book before they go"],announced:["Paid · sale date set","put it in the diary"],not_yet:["Paid · no date yet","we're watching"],sold_out:["Sold out","check for returns"]};
+const GORD={free:0,on_sale:1,announced:2,not_yet:3,sold_out:4};
+const grp=x=>x.free&&x.status!=="sold_out"?"free":(x.status==="low"?"on_sale":x.status);
+let rows=[],filter="all";
+try{const f=localStorage.getItem("gw-filter");if(f)filter=f}catch(e){}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=iso=>{if(!iso)return"";const d=new Date(iso);return isNaN(d)?iso:d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"})};
+const fmtT=iso=>{const d=new Date(iso);return isNaN(d)?iso:d.toLocaleString("en-GB",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"})};
+(function sleeps(){
+  const now=new Date(),y=now.getFullYear();let xmas=new Date(y,11,25);if(now>new Date(y,11,25,23,59))xmas=new Date(y+1,11,25);
+  const n=Math.ceil((xmas-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+  document.getElementById("sleeps").innerHTML=n===0?"<b>It's Christmas Day!</b>":`<b>${n}</b> sleep${n===1?"":"s"} till Christmas`;
+})();
+function render(){
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.f===filter)));
+  const main=document.getElementById("main");
+  const F={all:()=>true,tod:x=>!!x.toddlerOk,grotto:x=>x.kind==="grotto",lights:x=>x.kind!=="grotto",free:x=>!!x.free,paid:x=>!x.free&&(x.status==="on_sale"||x.status==="low")};
+  let r=rows.filter(F[filter]||F.all);
+  const nFree=rows.filter(x=>x.free).length,nOpen=rows.filter(x=>!x.free&&(x.status==="on_sale"||x.status==="low")).length,nSoon=rows.filter(x=>x.status==="announced"&&!x.free).length,nGone=rows.filter(x=>x.status==="sold_out").length;
+  document.getElementById("counts").innerHTML=rows.length?`<span class="chip go">${nOpen} paid, open now</span><span class="chip free">${nFree} free</span><span class="chip soon">${nSoon} with a sale date</span>${nGone?`<span class="chip gone">${nGone} sold out</span>`:""}<span class="chip wait">${rows.length} tracked</span>`:"";
+  if(!r.length){main.innerHTML=`<div class="empty">${rows.length?"Nothing in this filter yet.":"No events yet."}</div>`;return}
+  r.sort((a,b)=>(GORD[grp(a)]??9)-(GORD[grp(b)]??9)||(ORDER[a.status]??9)-(ORDER[b.status]??9)||String(a.saleDate||"9").localeCompare(String(b.saleDate||"9"))||String(a.name).localeCompare(String(b.name)));
+  let html="",last=null;
+  for(const x of r){
+    const g=grp(x);
+    if(g!==last){if(last!==null)html+="</div>";const [t,s]=SEC[g]||["Other",""];html+=`<div class="section-h">${t}<small>${s}</small></div><div class="list">`;last=g}
+    const [cls,label]=x.noTicket&&x.status!=="sold_out"?["go","Just turn up"]:(META[x.status]||["wait","Watching"]);
+    const sale=x.saleDate?fmt(x.saleDate)+(x.saleNote?" · "+esc(x.saleNote):""):esc(x.saleNote||"");
+    const open=x.status==="on_sale"||x.status==="low";
+    html+=`<article class="slip ${g==="free"?"free":cls}">
+      <div class="top"><div><h2 class="name">${esc(x.name)}</h2><div class="venue">${esc(x.venue)}</div></div><span class="chips">${x.free?'<span class="chip free">Free</span>':""}<span class="chip ${cls}">${label}</span></span></div>
+      <p class="what">${esc(x.what)}</p>
+      <dl class="facts">${x.runs?`<dt>Runs</dt><dd>${esc(x.runs)}</dd>`:""}${sale?`<dt>${x.noTicket?"When":"Tickets"}</dt><dd>${sale}</dd>`:""}${x.price?`<dt>Price</dt><dd>${esc(x.price)}</dd>`:""}</dl>
+      ${x.toddler?`<div class="tod"><b>With a toddler:</b> ${esc(x.toddler)}</div>`:""}
+      <div class="actions">${x.link?`<a class="book" href="${esc(x.link)}" target="_blank" rel="noopener">${open?"Book on the official site":"Official page"}</a>`:"<span></span>"}${x.checked?`<span class="checked">Last checked ${fmt(x.checked)}</span>`:""}</div>
+    </article>`;
+  }
+  main.innerHTML=html+"</div>";
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;try{localStorage.setItem("gw-filter",filter)}catch(e){}render()}));
+fetch("events.json?t="+Date.now()).then(r=>r.json()).then(d=>{
+  rows=d.events||[];render();
+  document.getElementById("run").innerHTML=`Last checked <b>${esc(fmtT(d.updated))}</b>${d.summary?" · "+esc(d.summary):""}`;
+}).catch(()=>{document.getElementById("main").innerHTML='<div class="empty">Couldn\'t load the list. Try again in a minute.</div>';document.getElementById("run").textContent="Couldn't load the latest check"});
+(function snow(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const c=document.getElementById("snow"),ctx=c.getContext("2d");let W,H,flakes=[];
+  const size=()=>{W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio};size();addEventListener("resize",size);
+  const col=()=>getComputedStyle(document.documentElement).getPropertyValue("--snow").trim()||"#fff";
+  for(let i=0;i<70;i++)flakes.push({x:Math.random(),y:Math.random(),r:(.6+Math.random()*1.8),s:.00015+Math.random()*.0003,d:Math.random()*6.28});
+  let last=0;(function tick(t){const dt=Math.min(50,t-last);last=t;ctx.clearRect(0,0,W,H);ctx.fillStyle=col();ctx.globalAlpha=.55;
+    for(const f of flakes){f.y+=f.s*dt;f.d+=.001*dt;f.x+=Math.sin(f.d)*.00008*dt;if(f.y>1.02){f.y=-.02;f.x=Math.random()}
+      ctx.beginPath();ctx.arc(f.x*W,f.y*H,f.r*devicePixelRatio,0,6.28);ctx.fill()}
+    requestAnimationFrame(tick)})(0);
+})();
+</script>
+</body>
+</html>
